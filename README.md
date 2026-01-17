@@ -1,5 +1,7 @@
 # 🛠 MatFuse: Material-Informed Sensor Fusion Engine
 
+![C++ CI](https://github.com/ozereray/MatFuse/actions/workflows/cpp-build.yml/badge.svg)
+
 **MatFuse** is a high-performance, physics-aware sensor fusion framework designed for next-generation autonomous systems. It addresses a critical gap in current perception stacks: the assumption that sensor noise is static.
 
 By integrating **Materials Science & Engineering** principles with advanced AI, MatFuse dynamically adjusts sensor reliability based on real-time physical degradation and environmental stress.
@@ -39,3 +41,12 @@ Where:
 - [ ] Thermal Noise Modeling for Lidar/Radar Suites
 - [ ] Real-time Simulation Entegration (CARLA/Webots)
 - [ ] Deployment to VYNO Autonomous Stack
+
+## 🐳 Quick Start with Docker
+
+To run the MatFuse autonomous simulation in a containerized environment:
+
+```bash
+docker build -t vyno/matfuse .
+docker run --rm vyno/matfuse
+```
