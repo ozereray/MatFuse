@@ -13,14 +13,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Eigen
+      - name: Setup Eigen
         run: |
+          # Temiz bir kurulum için mevcut her şeyi sil
+          rm -rf Eigen eigen-3.4.0 eigen-3.4.0.zip
+          # Kütüphaneyi güvenli kaynaktan çek
           wget https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.zip
           unzip eigen-3.4.0.zip
+          # Sadece gerekli klasörü ana dizine taşı
           mv eigen-3.4.0/Eigen ./Eigen
+          # Temizlik
+          rm -rf eigen-3.4.0 eigen-3.4.0.zip
 
       - name: Compile MatFuse Core
+        # Dosya yapını ve Eigen bağımlılığını doğrulayarak derle
         run: g++ -I . main.cpp -o MatFuse_Sim
 
       - name: Run Simulation Test
+        # Sistemin otonom mantığını doğrula
         run: ./MatFuse_Sim
